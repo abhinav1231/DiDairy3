@@ -15,5 +15,7 @@ app.listen(PORT,function(err,data){
 	db.connectDB();
 });
 
-
+app.use('/',function(req, res){
+	res.send({status:200, message:"welcome abhinav"});
+});
 app.use('/admin',adminRoute);
