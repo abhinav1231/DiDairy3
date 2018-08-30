@@ -4,47 +4,39 @@ var Schema = mongoose.Schema;
 
 
  teacherSchema = new Schema({
-    name: {type : String,select : false},
+    name: {type : String},
     email: {type : String},
     age: {type : Number},
-    gender:{
-    	male: {type : Boolean,default : false},
-    	female: {type : Boolean,default : false},
+    password : { type : String},
+    gender : {   
+        male: {type : String},
+        female: {type : String}
     },
-    accountType : {
+    accounttype : {
         type : String,
         enum : ['Student','Teacher','Admin','Super Admin','Watchman','Doctor'],
         default : 'Student'
     },
     address: {
-        line1: {type : String},
-        line2: {type : String},
-        city: {type : String},
-        state: {type : String},
-        pincode: {type : String},
-    },
+            line: {
+                    line1: {type : String},
+                    line2: {type : String},
+                  },
+            city: {type : String},
+            state: {type : String},
+            pincode: {type : String}        
+        },
     phone: {type : String},
-    subject: {type : String},
-    // education: {
-	   //  bachelor: {
-	   //  	indian : {type : String},
-	   //  	Abroad : {type : String},
-	   //  },
-	   //  Master: {
-	   //  	indian : {type : String},
-	   //  	Abroad : {type : String},
-	   //  },
-	   //  Phd: {
-	   //  	indian : {type : String},
-	   //  	Abroad : {type : String},
-	   //  },
-    // },
-    join: {
-        type: Date
-    }
+    subject: {type : String},    
+    education : {
+        bachelor: {type : String},
+        master: {type : String},
+        phd: {type : String}
+    },
+    join: {type : String}
 
 })
 
 var teacher = mongoose.model('teacher', teacherSchema);
 
-module.exports = teacher;			
+module.exports = teacher;
