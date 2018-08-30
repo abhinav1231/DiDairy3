@@ -10,7 +10,7 @@ var PORT = 4000;
 
 app.use(cors());
 app.use(bodyparser.json());
-app.listen(PORT,function(err,data){
+app.listen(process.env.PORT || PORT,function(err,data){
 	console.log(`server running on  ${PORT}`);
 	db.connectDB();
 });
