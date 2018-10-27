@@ -2,7 +2,7 @@ var signupSchema = require('../models/signupschema');
 var bcrypt = require('bcrypt');
 
 var signup = function(req, res) {
-
+console.log("req.body::::::::::",req.body)
   let firstname = req.body.firstname;
   let lastname = req.body.lastname;
   let email = req.body.email;

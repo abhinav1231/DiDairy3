@@ -3,6 +3,7 @@ var express=require('express');
 var adminCtrl=require('../../controller/adminController');
 var signupCtrl=require('../../controller/signupcontroller');
 var teacherCtrl=require('../../controller/teachercontroller');
+var studentCtrl=require('../../controller/studentcontroller');
 
 var router=express.Router();
 var jwt = require('jsonwebtoken');
@@ -22,9 +23,14 @@ router.post('/teacherAdmin',checkHeader,teacherCtrl.teacherAdmin);
 // router.post('/updateAdminById', adminCtrl.updateAdminById);
 // router.post('/deleteAdminById', adminCtrl.deleteAdminById);
 
-router.post('/login', signupCtrl.login);
+router.post('/admin/student', studentCtrl.student);
 
-router.post('/signup', signupCtrl.signup);
+router.get('/admin/student', studentCtrl.student);
+
+
+router.post('/admin/login', signupCtrl.login);
+
+router.post('/admin/signup', signupCtrl.signup);
 
 function checkHeader(req, res,next){
 	console.log("headers:::",req.headers.authorization);
